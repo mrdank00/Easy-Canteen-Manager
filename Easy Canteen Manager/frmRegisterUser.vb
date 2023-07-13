@@ -2,9 +2,9 @@
 Imports System.Data.OleDb
     Imports System.Data.SqlClient
 Public Class frmRegisterUser
-    'Public path = "C:\Program Files (x86)\ZKTeco\att2000.mdb"
-    Public path = "C:\Program Files\ZKTeco\att2000.mdb"
-    'Public path = "C:\Program Files (x86)\Hardsoft\ZKTeco\att2000.mdb"
+    Public path = "C:\Program Files (x86)\ZKTeco\att2000.mdb"
+    'Public path = "C:\Program Files\ZKTeco\att2000.mdb"
+    ' Public path = "C:\Program Files (x86)\Hardsoft\ZKTeco\att2000.mdb"
     Dim found As Boolean
     Private Sub frmRegUserMeal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 

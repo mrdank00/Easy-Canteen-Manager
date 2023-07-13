@@ -19,7 +19,10 @@ Public Class frmUploadData
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
+        If TextBox1.Text = "" Then
+            MsgBox("Select an Access File")
+            Exit Sub
+        End If
         Display("SELECT * FROM mealtranxsync WHERE MONTH(eatdate) = Month(CDate('" + DateTimePicker1.Value.ToString("dd/MM/yyyy") + "'))", DataGridView2)
     End Sub
 
@@ -72,11 +75,25 @@ Public Class frmUploadData
     End Sub
 
     Private Sub frmDataTransfer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim cmd As SqlCommand = New SqlCommand("SELECT location FROM mealtimes", Poscon)
+        Dim tbl As DataTable = New DataTable()
+        Dim da As SqlDataAdapter = New SqlDataAdapter(cmd) ' Assign the SqlCommand to the SqlDataAdapter
+
+        If Poscon.State = ConnectionState.Closed Then
+            Poscon.Open()
+        End If ' Assuming Poscon is a valid SqlConnection object
+        da.Fill(tbl)
+        Poscon.Close()
+
+        If tbl.Rows.Count > 0 Then
+            Label3.Text = tbl.Rows(0)("location").ToString()
+        End If
+
 
     End Sub
 
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
-        reload("Select * from mealtranx where MONTH(eatdate)=month(convert(datetime,'" + DateTimePicker1.Value + "',105))", DataGridView1)
+        reload("Select * from mealtranx where MONTH(eatdate)=month(convert(datetime,'" + DateTimePicker1.Value + "',105)) ", DataGridView1)
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -96,8 +113,8 @@ Public Class frmUploadData
                                     "    Department = @department " &
                                     "WHERE syncid = @syncid " &
                                     "ELSE " &
-                                    "INSERT INTO MealTranx (UserId, UserName, Price, MealName, Qty, Company, Department,eatdate,syncid) " &
-                                    "VALUES (@userid, @username, @price, @mealName, @qty, @company, @department,@eatdate,@syncid)"
+                                    "INSERT INTO MealTranx (UserId, UserName, Price, MealName, Qty, Company, Department,eatdate,terminal,Staffid,syncid) " &
+                                    "VALUES (@userid, @username, @price, @mealName, @qty, @company, @department,@eatdate,@terminal,@staffid,@syncid)"
 
             cmd = New SqlCommand(cmdText, Poscon)
             cmd.Parameters.AddWithValue("@userid", row.Cells(1).Value)

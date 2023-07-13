@@ -24,6 +24,10 @@
     End Sub
 
     Private Sub ReportsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReportsToolStripMenuItem.Click
+        'If (ExpiryModule.IsExpired()) Then
+        '    frmExpired.ShowDialog()
+        '    Exit Sub
+        'End If
         OpenForm(GetType(frmReports))
     End Sub
 
@@ -37,10 +41,22 @@
     End Sub
 
     Private Sub ImportExportDataToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportExportDataToolStripMenuItem.Click
+        'If (ExpiryModule.IsExpired()) Then
+        '    frmExpired.ShowDialog()
+        '    Exit Sub
+        'End If
         OpenForm(GetType(frmDataTransfer))
     End Sub
 
     Private Sub ExportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportToolStripMenuItem.Click
+        'If (ExpiryModule.IsExpired()) Then
+        '    frmExpired.ShowDialog()
+        '    Exit Sub
+        'End If
         OpenForm(GetType(frmUploadData))
+    End Sub
+
+    Private Sub MealEntriesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MealEntriesToolStripMenuItem.Click
+        OpenForm(GetType(frmMealEntry))
     End Sub
 End Class

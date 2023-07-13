@@ -105,6 +105,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPosTerminal.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ExpiryModule.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -118,10 +119,22 @@
     <Compile Include="frmDataTransfer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmExpired.Designer.vb">
+      <DependentUpon>frmExpired.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmExpired.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmlogin.Designer.vb">
       <DependentUpon>frmlogin.vb</DependentUpon>
     </Compile>
     <Compile Include="frmlogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMealEntry.Designer.vb">
+      <DependentUpon>frmMealEntry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMealEntry.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmRegisterUser.Designer.vb">
@@ -152,6 +165,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -167,6 +181,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptMealperDateSumm.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptMealperLoc.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptMealperLoc.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="rptMealPerLocSumm.vb">
@@ -225,8 +245,14 @@
     <EmbeddedResource Include="frmDataTransfer.resx">
       <DependentUpon>frmDataTransfer.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmExpired.resx">
+      <DependentUpon>frmExpired.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmlogin.resx">
       <DependentUpon>frmlogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMealEntry.resx">
+      <DependentUpon>frmMealEntry.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegisterUser.resx">
       <DependentUpon>frmRegisterUser.vb</DependentUpon>
@@ -249,6 +275,10 @@
     <EmbeddedResource Include="rptMealperDateSumm.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptMealperDateSumm.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptMealperLoc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptMealperLoc.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptMealPerLocSumm.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

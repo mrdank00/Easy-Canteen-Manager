@@ -33,7 +33,7 @@ Public Class frmReports
             If cbItemname.SelectedIndex > -1 Then
                 query.Append(" AND Customername = @item")
             End If
-            query.Append(" AND eatdate between convert(datetime,@datefrom,105) and convert(datetime,@dateto,105)")
+            query.Append(" AND convert(date,eatdate,103) between convert(datetime,@datefrom,103) and convert(datetime,@dateto,103)")
 
             Using command As New SqlCommand(query.ToString(), Poscon)
                 command.Parameters.AddWithValue("@dateFrom", dpdatefrom.Value.ToString("dd/MM/yyyy"))
@@ -114,7 +114,7 @@ FROM MealTranx where 1=1
             If cbItemname.SelectedIndex > -1 Then
                 query.Append(" AND Customername = @item")
             End If
-            query.Append(" AND eatdate between convert(datetime,@datefrom,105) and convert(datetime,@dateto,105)")
+            query.Append(" AND convert(date,eatdate,103) between convert(datetime,@datefrom,103) and convert(datetime,@dateto,103)")
 
             Using command As New SqlCommand(query.ToString(), Poscon)
                 command.Parameters.AddWithValue("@dateFrom", dpdatefrom.Value.ToString("dd/MM/yyyy"))
@@ -158,7 +158,7 @@ FROM MealTranx where 1=1
             dt.Tables("clientreg").Rows.Clear()
             da.Fill(dt, "ClientReg")
 
-            Dim report As New rptMealsperCompany
+            Dim report As New rptmealperloc
             report.SetDataSource(dt)
             frmSupplierReport.Show()
             frmSupplierReport.CrystalReportViewer1.ReportSource = report
@@ -191,7 +191,7 @@ FROM MealTranx where 1=1
                 query.Append(" AND Customername = @item")
             End If
 
-            query.Append(" AND eatdate between convert(datetime,@datefrom,105) and convert(datetime,@dateto,105)")
+            ' query.Append(" AND eatdate between convert(datetime,@datefrom,103) and convert(datetime,@dateto,103)")
 
             Using command As New SqlCommand(query.ToString(), Poscon)
                 command.Parameters.AddWithValue("@dateFrom", dpdatefrom.Value.ToString("dd/MM/yyyy"))
@@ -273,7 +273,7 @@ FROM MealTranx where 1=1
                 query.Append(" AND Customername = @item")
             End If
 
-            query.Append(" AND eatdate between convert(datetime,@datefrom,105) and convert(datetime,@dateto,105)")
+            query.Append(" AND eatdate between convert(datetime,@datefrom,103) and convert(datetime,@dateto,103)")
             query.Append(" GROUP BY userid,UserName,convert(date,eatdate,103),Company,Department order by edate")
 
             Using command As New SqlCommand(query.ToString(), Poscon)
@@ -355,7 +355,7 @@ FROM MealTranx where 1=1
             If cbItemname.SelectedIndex > -1 Then
                 query.Append(" AND Customername = @item")
             End If
-            query.Append(" AND eatdate between convert(datetime,@datefrom,105) and convert(datetime,@dateto,105)")
+            query.Append(" AND convert(date,eatdate,103) between convert(datetime,@datefrom,103) and convert(datetime,@dateto,103)")
 
             Using command As New SqlCommand(query.ToString(), Poscon)
                 command.Parameters.AddWithValue("@dateFrom", dpdatefrom.Value.ToString("dd/MM/yyyy"))
@@ -426,8 +426,8 @@ FROM MealTranx where 1=1
         CASE WHEN MealName = 'Breakfast' THEN Qty END AS 'Breakfast',
         CASE WHEN MealName = 'Lunch' THEN Qty END AS 'Lunch',
         CASE WHEN MealName = 'Dinner' THEN Qty END AS 'Dinner',terminal as location
-FROM MealTranx where 1=1
-")
+        FROM MealTranx where 1=1
+        ")
 
             If cbShopname.SelectedIndex > -1 Then
                 query.Append(" AND Company = @shop")
@@ -436,7 +436,7 @@ FROM MealTranx where 1=1
             If cbItemname.SelectedIndex > -1 Then
                 query.Append(" AND Customername = @item")
             End If
-            query.Append(" AND eatdate between convert(datetime,@datefrom,105) and convert(datetime,@dateto,105)")
+            query.Append(" AND convert(date,eatdate,103) between convert(datetime,@datefrom,103) and convert(datetime,@dateto,103)")
 
             Using command As New SqlCommand(query.ToString(), Poscon)
                 command.Parameters.AddWithValue("@dateFrom", dpdatefrom.Value.ToString("dd/MM/yyyy"))
@@ -517,7 +517,7 @@ FROM MealTranx where 1=1
             If cbItemname.SelectedIndex > -1 Then
                 query.Append(" AND Customername = @item")
             End If
-            query.Append(" AND eatdate between convert(datetime,@datefrom,105) and convert(datetime,@dateto,105)")
+            query.Append(" AND convert(date,eatdate,103) between convert(datetime,@datefrom,103) and convert(datetime,@dateto,103)")
 
             Using command As New SqlCommand(query.ToString(), Poscon)
                 command.Parameters.AddWithValue("@dateFrom", dpdatefrom.Value.ToString("dd/MM/yyyy"))
@@ -576,6 +576,7 @@ FROM MealTranx where 1=1
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+
         Cursor = Cursors.WaitCursor
 
         Try
@@ -587,7 +588,9 @@ FROM MealTranx where 1=1
             query.Append("SELECT  convert(date,eatdate,103) as edate,Company,Department,userid,username,
         CASE WHEN MealName = 'Breakfast' THEN Qty END AS 'Breakfast',
         CASE WHEN MealName = 'Lunch' THEN Qty END AS 'Lunch',
-        CASE WHEN MealName = 'Dinner' THEN Qty END AS 'Dinner',terminal as location
+        CASE WHEN MealName = 'Dinner' THEN Qty END AS 'Dinner',
+        CASE WHEN MealName = 'Supplementary' THEN Qty END AS 'Suppl',
+ CASE WHEN MealName = 'Pack' THEN Qty END AS 'Pack',terminal as location
 FROM MealTranx where 1=1
 ")
 
@@ -598,7 +601,7 @@ FROM MealTranx where 1=1
             If cbItemname.SelectedIndex > -1 Then
                 query.Append(" AND Customername = @item")
             End If
-            query.Append(" AND eatdate between convert(datetime,@datefrom,105) and convert(datetime,@dateto,105)")
+            query.Append(" AND convert(date,eatdate,103) between convert(datetime,@datefrom,103) and convert(datetime,@dateto,103)")
 
             Using command As New SqlCommand(query.ToString(), Poscon)
                 command.Parameters.AddWithValue("@dateFrom", dpdatefrom.Value.ToString("dd/MM/yyyy"))
@@ -668,9 +671,11 @@ FROM MealTranx where 1=1
             query.Append("SELECT  convert(date,eatdate,103) as edate,Company,Department,userid,username,
         CASE WHEN MealName = 'Breakfast' THEN Qty END AS 'Breakfast',
         CASE WHEN MealName = 'Lunch' THEN Qty END AS 'Lunch',
-        CASE WHEN MealName = 'Dinner' THEN Qty END AS 'Dinner',terminal as location
-FROM MealTranx where 1=1
-")
+        CASE WHEN MealName = 'Dinner' THEN Qty END AS 'Dinner',
+        CASE WHEN MealName = 'Supplementary' THEN Qty END AS 'Suppl',
+         CASE WHEN MealName = 'Pack' THEN Qty END AS 'Pack',terminal as location
+        FROM MealTranx where 1=1
+            ")
 
             If cbShopname.SelectedIndex > -1 Then
                 query.Append(" AND Company = @shop")
@@ -679,7 +684,7 @@ FROM MealTranx where 1=1
             If cbItemname.SelectedIndex > -1 Then
                 query.Append(" AND Customername = @item")
             End If
-            query.Append(" AND eatdate between convert(datetime,@datefrom,105) and convert(datetime,@dateto,105)")
+            query.Append(" AND convert(date,eatdate,103) between convert(datetime,@datefrom,103) and convert(datetime,@dateto,103)")
 
             Using command As New SqlCommand(query.ToString(), Poscon)
                 command.Parameters.AddWithValue("@dateFrom", dpdatefrom.Value.ToString("dd/MM/yyyy"))

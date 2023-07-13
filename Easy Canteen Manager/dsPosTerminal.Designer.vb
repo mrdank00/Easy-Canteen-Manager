@@ -1983,6 +1983,10 @@ Partial Public Class dsPosTerminal
         
         Private columnDinner As Global.System.Data.DataColumn
         
+        Private columnSuppl As Global.System.Data.DataColumn
+        
+        Private columnPack As Global.System.Data.DataColumn
+        
         Private columnLocation As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2086,6 +2090,22 @@ Partial Public Class dsPosTerminal
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property SupplColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSuppl
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property PackColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPack
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property LocationColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnLocation
@@ -2129,9 +2149,9 @@ Partial Public Class dsPosTerminal
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddeatrowsRow(ByVal edate As Date, ByVal Company As String, ByVal Department As String, ByVal Userid As String, ByVal Username As String, ByVal Breakfast As Double, ByVal Lunch As Double, ByVal Dinner As Double, ByVal Location As String) As eatrowsRow
+        Public Overloads Function AddeatrowsRow(ByVal edate As Date, ByVal Company As String, ByVal Department As String, ByVal Userid As String, ByVal Username As String, ByVal Breakfast As Double, ByVal Lunch As Double, ByVal Dinner As Double, ByVal Suppl As Double, ByVal Pack As Double, ByVal Location As String) As eatrowsRow
             Dim roweatrowsRow As eatrowsRow = CType(Me.NewRow,eatrowsRow)
-            Dim columnValuesArray() As Object = New Object() {edate, Company, Department, Userid, Username, Breakfast, Lunch, Dinner, Location}
+            Dim columnValuesArray() As Object = New Object() {edate, Company, Department, Userid, Username, Breakfast, Lunch, Dinner, Suppl, Pack, Location}
             roweatrowsRow.ItemArray = columnValuesArray
             Me.Rows.Add(roweatrowsRow)
             Return roweatrowsRow
@@ -2162,6 +2182,8 @@ Partial Public Class dsPosTerminal
             Me.columnBreakfast = MyBase.Columns("Breakfast")
             Me.columnLunch = MyBase.Columns("Lunch")
             Me.columnDinner = MyBase.Columns("Dinner")
+            Me.columnSuppl = MyBase.Columns("Suppl")
+            Me.columnPack = MyBase.Columns("Pack")
             Me.columnLocation = MyBase.Columns("Location")
         End Sub
         
@@ -2184,6 +2206,10 @@ Partial Public Class dsPosTerminal
             MyBase.Columns.Add(Me.columnLunch)
             Me.columnDinner = New Global.System.Data.DataColumn("Dinner", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDinner)
+            Me.columnSuppl = New Global.System.Data.DataColumn("Suppl", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSuppl)
+            Me.columnPack = New Global.System.Data.DataColumn("Pack", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPack)
             Me.columnLocation = New Global.System.Data.DataColumn("Location", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLocation)
         End Sub
@@ -3746,6 +3772,36 @@ Partial Public Class dsPosTerminal
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Suppl() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableeatrows.SupplColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Suppl' in table 'eatrows' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableeatrows.SupplColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Pack() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableeatrows.PackColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Pack' in table 'eatrows' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableeatrows.PackColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property Location() As String
             Get
                 Try 
@@ -3853,6 +3909,30 @@ Partial Public Class dsPosTerminal
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetDinnerNull()
             Me(Me.tableeatrows.DinnerColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsSupplNull() As Boolean
+            Return Me.IsNull(Me.tableeatrows.SupplColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetSupplNull()
+            Me(Me.tableeatrows.SupplColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsPackNull() As Boolean
+            Return Me.IsNull(Me.tableeatrows.PackColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetPackNull()
+            Me(Me.tableeatrows.PackColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

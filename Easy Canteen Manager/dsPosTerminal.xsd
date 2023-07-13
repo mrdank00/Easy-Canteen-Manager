@@ -521,6 +521,8 @@ SELECT Id, MealName, stime, eTime, Price FROM MealTimes WHERE (Id = @Id)</Comman
               <xs:element name="Breakfast" msprop:Generator_ColumnVarNameInTable="columnBreakfast" msprop:Generator_ColumnPropNameInRow="Breakfast" msprop:Generator_ColumnPropNameInTable="BreakfastColumn" msprop:Generator_UserColumnName="Breakfast" type="xs:double" minOccurs="0" />
               <xs:element name="Lunch" msprop:Generator_ColumnVarNameInTable="columnLunch" msprop:Generator_ColumnPropNameInRow="Lunch" msprop:Generator_ColumnPropNameInTable="LunchColumn" msprop:Generator_UserColumnName="Lunch" type="xs:double" minOccurs="0" />
               <xs:element name="Dinner" msprop:Generator_ColumnVarNameInTable="columnDinner" msprop:Generator_ColumnPropNameInRow="Dinner" msprop:Generator_ColumnPropNameInTable="DinnerColumn" msprop:Generator_UserColumnName="Dinner" type="xs:double" minOccurs="0" />
+              <xs:element name="Suppl" msprop:Generator_ColumnVarNameInTable="columnSuppl" msprop:Generator_ColumnPropNameInRow="Suppl" msprop:Generator_ColumnPropNameInTable="SupplColumn" msprop:Generator_UserColumnName="Suppl" type="xs:double" minOccurs="0" />
+              <xs:element name="Pack" msprop:Generator_ColumnVarNameInTable="columnPack" msprop:Generator_ColumnPropNameInRow="Pack" msprop:Generator_ColumnPropNameInTable="PackColumn" msprop:Generator_UserColumnName="Pack" type="xs:double" minOccurs="0" />
               <xs:element name="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnPropNameInTable="LocationColumn" msprop:Generator_UserColumnName="Location" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>

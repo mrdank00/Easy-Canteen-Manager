@@ -21,8 +21,11 @@ Public Class frmDataTransfer
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
-        Display("SELECT * FROM mealtranxsync WHERE MONTH(eatdate) = Month(CDate('" + DateTimePicker1.Value.ToString("dd/MM/yyyy") + "'))", DataGridView2)
+        If TextBox1.Text = "" Then
+            MsgBox("Select an Access File")
+            Exit Sub
+        End If
+        Display("SELECT * FROM mealtranxsync WHERE MONTH(eatdate) = Month(CDate('" + DateTimePicker1.Value.ToString("dd/MM/yyyy") + "')) ", DataGridView2)
     End Sub
 
     Public Sub Display(ByVal sql As String, dgv As DataGridView)
@@ -74,6 +77,19 @@ Public Class frmDataTransfer
     End Sub
 
     Private Sub frmDataTransfer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim cmd As SqlCommand = New SqlCommand("SELECT location FROM mealtimes", Poscon)
+        Dim tbl As DataTable = New DataTable()
+        Dim da As SqlDataAdapter = New SqlDataAdapter(cmd) ' Assign the SqlCommand to the SqlDataAdapter
+
+        If Poscon.State = ConnectionState.Closed Then
+            Poscon.Open()
+        End If ' Assuming Poscon is a valid SqlConnection object
+        da.Fill(tbl)
+        Poscon.Close()
+
+        If tbl.Rows.Count > 0 Then
+            Label3.Text = tbl.Rows(0)("location").ToString()
+        End If
 
     End Sub
 
@@ -115,8 +131,8 @@ Public Class frmDataTransfer
                              WHERE  syncid = @terminal+@id", con)
             Else
                 '  MsgBox("insert")
-                cmds = New OleDbCommand("INSERT INTO MealTranxsync (UserId, UserName, MealName, Qty, Company, Department,eatdate,syncid) 
-                             VALUES ('" & row.Cells(1).Value & "', '" + row.Cells(2).Value + "','" + row.Cells(5).Value + "', '" & row.Cells(6).Value & "', '" + row.Cells(7).Value + "', '" + row.Cells(8).Value + "',#" + myDateString + "#,'" & row.Cells(9).Value & row.Cells(0).Value & "')", con)
+                cmds = New OleDbCommand("INSERT INTO MealTranxsync (UserId, UserName, MealName, Qty, Company, Department,eatdate,terminal,staffid,syncid) 
+                             VALUES ('" & row.Cells(1).Value & "', '" + row.Cells(2).Value + "','" + row.Cells(5).Value + "', '" & row.Cells(6).Value & "', '" + row.Cells(7).Value + "', '" + row.Cells(8).Value + "',#" + myDateString + "#,'" & row.Cells(9).Value & "','" & row.Cells(10).Value & "','" & row.Cells(9).Value & row.Cells(0).Value & "')", con)
             End If
             '.ToString("yyyy-MM-dd HH:mm:ss")
             cmds.Parameters.AddWithValue("@id", row.Cells(0).Value)
@@ -135,6 +151,7 @@ Public Class frmDataTransfer
 
 
         Next
+        Display("SELECT * FROM mealtranxsync WHERE MONTH(eatdate) = Month(CDate('" + DateTimePicker1.Value.ToString("dd/MM/yyyy") + "')) ", DataGridView2)
         MsgBox("Sucess")
 
     End Sub

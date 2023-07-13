@@ -150,19 +150,20 @@ Partial Class frmReports
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(322, 383)
+        Me.Button1.Location = New System.Drawing.Point(322, 482)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(259, 36)
         Me.Button1.TabIndex = 252
         Me.Button1.Text = "Meal per Company"
         Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
         '
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Location = New System.Drawing.Point(41, 267)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(259, 37)
+        Me.Button2.Size = New System.Drawing.Size(399, 37)
         Me.Button2.TabIndex = 253
         Me.Button2.Text = "Meal per Location"
         Me.Button2.UseVisualStyleBackColor = True
@@ -170,29 +171,31 @@ Partial Class frmReports
         'Button3
         '
         Me.Button3.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(41, 383)
+        Me.Button3.Location = New System.Drawing.Point(41, 482)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(259, 34)
         Me.Button3.TabIndex = 254
         Me.Button3.Text = "Meal per Type Roll"
         Me.Button3.UseVisualStyleBackColor = True
+        Me.Button3.Visible = False
         '
         'Button4
         '
         Me.Button4.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(615, 385)
+        Me.Button4.Location = New System.Drawing.Point(615, 484)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(259, 34)
         Me.Button4.TabIndex = 255
         Me.Button4.Text = "Meal per Date"
         Me.Button4.UseVisualStyleBackColor = True
+        Me.Button4.Visible = False
         '
         'Button5
         '
         Me.Button5.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(41, 319)
+        Me.Button5.Location = New System.Drawing.Point(470, 267)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(259, 37)
+        Me.Button5.Size = New System.Drawing.Size(366, 37)
         Me.Button5.TabIndex = 256
         Me.Button5.Text = "Meal per Location Summary"
         Me.Button5.UseVisualStyleBackColor = True
@@ -200,29 +203,31 @@ Partial Class frmReports
         'Button6
         '
         Me.Button6.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(322, 319)
+        Me.Button6.Location = New System.Drawing.Point(615, 441)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(259, 37)
         Me.Button6.TabIndex = 258
         Me.Button6.Text = "Meal per Date Summary"
         Me.Button6.UseVisualStyleBackColor = True
+        Me.Button6.Visible = False
         '
         'Button7
         '
         Me.Button7.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(322, 267)
+        Me.Button7.Location = New System.Drawing.Point(41, 421)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(259, 37)
         Me.Button7.TabIndex = 257
         Me.Button7.Text = "Meal per Date"
         Me.Button7.UseVisualStyleBackColor = True
+        Me.Button7.Visible = False
         '
         'Button8
         '
         Me.Button8.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button8.Location = New System.Drawing.Point(615, 319)
+        Me.Button8.Location = New System.Drawing.Point(470, 322)
         Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(259, 37)
+        Me.Button8.Size = New System.Drawing.Size(366, 37)
         Me.Button8.TabIndex = 260
         Me.Button8.Text = "Meal per Staff Summary"
         Me.Button8.UseVisualStyleBackColor = True
@@ -230,9 +235,9 @@ Partial Class frmReports
         'Button9
         '
         Me.Button9.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(615, 267)
+        Me.Button9.Location = New System.Drawing.Point(41, 322)
         Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(259, 37)
+        Me.Button9.Size = New System.Drawing.Size(399, 37)
         Me.Button9.TabIndex = 259
         Me.Button9.Text = "Meal per Staff"
         Me.Button9.UseVisualStyleBackColor = True
